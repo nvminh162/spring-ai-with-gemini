@@ -2,5 +2,6 @@
     "java.configuration.updateBuildConfiguration": "interactive",
     "cSpell.words": [
         "nvminh162"
-    ]
+    ],
+    "java.compile.nullAnalysis.mode": "automatic"
 }

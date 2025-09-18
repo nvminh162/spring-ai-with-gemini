@@ -3,8 +3,12 @@ package com.nvminh162.spring_ai_with_gemini.service;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.messages.SystemMessage;
 import org.springframework.ai.chat.messages.UserMessage;
+import org.springframework.ai.chat.prompt.ChatOptions;
 import org.springframework.ai.chat.prompt.Prompt;
+import org.springframework.ai.content.Media;
 import org.springframework.stereotype.Service;
+import org.springframework.util.MimeTypeUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.nvminh162.spring_ai_with_gemini.dto.request.ChatRequest;
 
@@ -31,6 +35,32 @@ public class ChatService {
         Prompt prompt = new Prompt(systemMessage, userMessage);
 
         return chatClient.prompt(prompt)
+                .call()
+                .content();
+    }
+
+    public String chatWithImage(MultipartFile file, String message) {
+        String contentType = file.getContentType();
+        if (contentType == null) {
+            contentType = "application/octet-stream"; // Default MIME type
+        }
+        Media media = Media.builder()
+                .mimeType(MimeTypeUtils.parseMimeType(contentType))
+                .data(file.getResource())
+                .build();
+
+        ChatOptions chatOptions = ChatOptions.builder()
+                .temperature(0D) // Mức sáng tạo nhất -> độ chính xác thấp
+                .build();
+
+        return chatClient.prompt()
+                .options(chatOptions)
+                .system("""
+                        You are Tokuda AI
+                        """)
+                .user(promptUserSpec -> promptUserSpec
+                        .media(media)
+                        .text(message))
                 .call()
                 .content();
     }
