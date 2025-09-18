@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SpringAiWithGeminiApplication<spring-ai-with-gemini>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.nvminh162.spring_ai_with_gemini.SpringAiWithGeminiApplication",
+            "projectName": "spring-ai-with-gemini",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
