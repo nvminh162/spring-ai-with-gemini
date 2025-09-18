@@ -1,9 +1,17 @@
 server:
-  port:
-    8080
+  port: 8080
 spring:
   application:
     name: spring-ai-with-gemini
+  datasource:
+    url: jdbc:postgresql://localhost:5432/spring-ai-with-gemini
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
   servlet:
     multipart:
       max-file-size: 50MB
@@ -12,8 +20,12 @@ spring:
     openai:
       api-key: ${GEMINI_KEY}
       chat:
-       base-url: https://generativelanguage.googleapis.com
-       completions-path: /v1beta/openai/chat/completions
-       options:
+        base-url: https://generativelanguage.googleapis.com
+        completions-path: /v1beta/openai/chat/completions
+        options:
           model: gemini-2.0-flash
-
+    chat:
+      memory:
+        repository:
+          jdbc:
+            initialize-schema: always # Always initialize

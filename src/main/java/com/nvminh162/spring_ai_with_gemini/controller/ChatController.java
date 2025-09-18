@@ -30,7 +30,7 @@ public class ChatController {
         return chatService.chat(request);
     }
 
-    @PostMapping("/chat-structure-list")
+    @PostMapping("/chat-structure-data-list")
     List<FilmInfoResponse> chatWithStructureDataList(@RequestBody ChatRequest request) {
         return chatService.chatWithStructureDataList(request);
     }
@@ -54,4 +54,8 @@ public class ChatController {
         return chatService.chatWithImageStructureDataList(file, message);
     }
 
+    @PostMapping("/chat-with-memory")
+    String chatWithMemory(@RequestBody ChatRequest request) {
+        return chatService.chatWithMemory(request);
+    }
 }
