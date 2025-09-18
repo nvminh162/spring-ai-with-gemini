@@ -32,3 +32,6 @@ Sự tương tác System prompt và User prompt:
 ### #3 Image Processing with Spring AI
 
 ### #4 Structure the data returned from Spring AI
+
+### #5 Chat Memory
+- https://docs.spring.io/spring-ai/reference/api/chat-memory.html
