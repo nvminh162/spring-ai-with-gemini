@@ -4,6 +4,10 @@ server:
 spring:
   application:
     name: spring-ai-with-gemini
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
   ai:
     openai:
       api-key: ${GEMINI_KEY}

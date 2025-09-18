@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "prompt",
+			"name": "chat",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -29,6 +29,40 @@
 					"port": "8080",
 					"path": [
 						"chat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "chat-with-image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/F:/personal/ChatGPT Image Jun 17, 2025, 01_58_14 PM.png"
+						},
+						{
+							"key": "message",
+							"value": "Anh ta đang ở đâu?",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/chat-with-image",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"chat-with-image"
 					]
 				}
 			},
