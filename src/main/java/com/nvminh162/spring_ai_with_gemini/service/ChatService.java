@@ -50,7 +50,7 @@ public class ChatService {
                 .build();
 
         ChatOptions chatOptions = ChatOptions.builder()
-                .temperature(0D) // Mức sáng tạo nhất -> độ chính xác thấp
+                .temperature(0D) // 1D - Mức sáng tạo nhất -> độ chính xác thấp
                 .build();
 
         return chatClient.prompt()
