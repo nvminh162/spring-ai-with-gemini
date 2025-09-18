@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"message\": \"Gà có trước hay trứng có trước?\"\r\n}",
+					"raw": "{\r\n    \"message\": \"Tên mày là gì? công ty mày ở tên là gì?\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
