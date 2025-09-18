@@ -28,3 +28,7 @@ Sự tương tác System prompt và User prompt:
 
 - System prompt: Do hệ thống config không cho User đụng đến
 - User prompt: Bất cứ thứ gì User muốn tương tác với hệ thống
+
+### #3 Image Processing with Spring AI
+
+### #4 Structure the data returned from Spring AI
