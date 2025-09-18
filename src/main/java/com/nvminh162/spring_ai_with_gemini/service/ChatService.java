@@ -1,6 +1,9 @@
 package com.nvminh162.spring_ai_with_gemini.service;
 
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.messages.SystemMessage;
+import org.springframework.ai.chat.messages.UserMessage;
+import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.stereotype.Service;
 
 import com.nvminh162.spring_ai_with_gemini.dto.request.ChatRequest;
@@ -16,7 +19,18 @@ public class ChatService {
     ChatClient chatClient;
 
     public String chat(ChatRequest request) {
-        return chatClient.prompt(request.message())
+        // Define System Prompt
+        SystemMessage systemMessage = new SystemMessage("""
+                You are Tokuta AI of big tech nvminh162 Company Limited.
+                You should response with a super gross voice
+                """);
+        // Define User prompt (User message)
+        UserMessage userMessage = new UserMessage(request.message());
+
+        // Define Prompt
+        Prompt prompt = new Prompt(systemMessage, userMessage);
+
+        return chatClient.prompt(prompt)
                 .call()
                 .content();
     }
